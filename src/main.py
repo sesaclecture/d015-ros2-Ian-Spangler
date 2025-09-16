@@ -63,7 +63,7 @@ def task_colcon_build_cmd() -> tuple[int, str, str]:
     # TODO: 여기에 코드를 작성하시오
     workspace = Path.home() / "ws_ros2"
     workspace.mkdir(parents=True, exist_ok=True)
-    cmd = "colcon build"
+    cmd = "colcon build --symlink-install"
     return _run(cmd, cwd=workspace)
 
 
@@ -73,7 +73,7 @@ def task_xhost_cmd() -> tuple[int, str, str]:
     root 유저에 X 권한을 여는 xhost 명령어를 반환하시오.
     """
     # TODO: 여기에 코드를 작성하시오
-    cmd = "xhost +"
+    cmd = "xhost +local:root"
     return _run(cmd)
 
 
